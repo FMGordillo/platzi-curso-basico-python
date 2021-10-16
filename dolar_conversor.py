@@ -8,6 +8,10 @@ opciones = """
 
 opcion_elegida = input(opciones)
 
+def calcular_e_imprimir(pesos, precio_dolar):
+   pesos_convertidos = round((pesos / precio_dolar), 2)
+   print('Tenes US$%s' % pesos_convertidos)
+
 try:
     opcion_elegida = int(opcion_elegida)
 
@@ -29,10 +33,8 @@ try:
     
     pesos = int(input("¿Cuántos pesos tienes? "))
 
-    pesos_convertidos  = round(pesos / cotizacion_dolar, 2)
-
-    print('Tenes US$%s' % pesos_convertidos)
-
+    calcular_e_imprimir(pesos, cotizacion_dolar)
+    
 except ValueError:
     print("Por favor, ingrese un número entero.")
     retry = input("¿Desea intentarlo de nuevo? (s/n) ")
