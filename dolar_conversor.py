@@ -6,34 +6,26 @@ opciones = """
   4. Colombia
 """
 
+paises = ["Argentina", "Brasil", "Chile", "Colombia"]
+cotizacion_dolar = [185, 99, 100, 25]
 opcion_elegida = input(opciones)
 
-def calcular_e_imprimir(pesos, precio_dolar):
-   pesos_convertidos = round((pesos / precio_dolar), 2)
-   print('Tenes US$%s' % pesos_convertidos)
+
+# 1. Saluda al pais
+# 2. Convierte a dolares
+# 3. Imprime el resultado
+def calcular_e_imprimir(pais_index, cantidad_pesos):
+  print('Hola %s' % (paises[pais_index - 1]))
+  pesos_convertidos = round((pesos / cotizacion_dolar[pais_index - 1]), 2)
+  print('Tenes US$%s' % pesos_convertidos)
 
 try:
     opcion_elegida = int(opcion_elegida)
-
-    if opcion_elegida == 1:
-        print("¡Hola Argentina!")
-        cotizacion_dolar = 185
-    elif opcion_elegida == 2:
-        print("¡Hola Brasil!")
-        cotizacion_dolar = 99
-    elif opcion_elegida == 3:
-        print("¡Hola Chile!")
-        cotizacion_dolar = 100
-    elif opcion_elegida == 4:
-        print("¡Hola Colombia!")
-        cotizacion_dolar = 25 
-    else:
-        print("No conozco ese pais pa, ahre que pusiste cualquier cosa")
-        exit()
-    
+    if opcion_elegida > len(paises):
+      print("No conozco ese pais pa, ahre que pusiste cualquier cosa")
+      exit()
     pesos = int(input("¿Cuántos pesos tienes? "))
-
-    calcular_e_imprimir(pesos, cotizacion_dolar)
+    calcular_e_imprimir(opcion_elegida, pesos)
     
 except ValueError:
     print("Por favor, ingrese un número entero.")
